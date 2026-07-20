@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { supabase } from '../supabaseClient';
 
-const API_BASE = process.env.REACT_APP_API_URL;
-
 const api = axios.create({
-  baseURL: API_BASE,
+  baseURL: `${process.env.REACT_APP_API_URL}/api`,
 });
 
 // Attach the current Supabase session's access token to every request
