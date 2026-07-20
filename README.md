@@ -14,7 +14,7 @@ Turn every sales call and customer review — in **English, Hindi, or Hinglish**
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](#-license)
 
-[🌐 Live Demo](#-live-demo) · [🎥 Demo Video](#-live-demo) · [📖 Docs](#-table-of-contents) · [🐛 Report Bug](YOUR_GITHUB_LINK/issues) · [✨ Request Feature](YOUR_GITHUB_LINK/issues)
+[🌐 Live Demo](#-live-demo) · [🎥 Demo Video](#-live-demo) · [📖 PPT](#-table-of-contents) · [🐛 Report Bug](YOUR_GITHUB_LINK/issues) · [✨ Request Feature](YOUR_GITHUB_LINK/issues)
 
 </div>
 
@@ -517,7 +517,7 @@ B.Tech Artificial Intelligence, Zakir Husain College of Engineering & Technology
 
 [![GitHub](https://img.shields.io/badge/GitHub-AatifaRizvi-181717?logo=github&logoColor=white)](https://github.com/AatifaRizvi)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-aatifa--rizvi-0A66C2?logo=linkedin&logoColor=white)](https://linkedin.com/in/aatifa-rizvi)
-[![Email](https://img.shields.io/badge/Email-aatifa.zhcet%40gmail.com-D14836?logo=gmail&logoColor=white)](mailto:aatifa.zhcet@gmail.com)
+[![Email](https://img.shields.io/badge/Email-rizviaatifa235%40gmail.com-D14836?logo=gmail&logoColor=white)](mailto:rizviaatifa235@gmail.com)
 
 ---
 
