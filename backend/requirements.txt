@@ -7,3 +7,6 @@ python-multipart
 openai-whisper
 supabase
 groq
+torch
+ffmpeg-python
+python-multipart
