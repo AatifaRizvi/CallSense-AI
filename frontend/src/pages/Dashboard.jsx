@@ -157,7 +157,7 @@ function ChartsGrid({ sentimentData, outcomeData, categoryData, languageData }) 
 
 function Dashboard() {
   const navigate = useNavigate();
-  const { profile, loading: profileLoading, isAdmin } = useProfile();
+  const { loading: profileLoading, isAdmin } = useProfile();
   const [stats, setStats] = useState(null);
   const [statsLoading, setStatsLoading] = useState(true);
 
