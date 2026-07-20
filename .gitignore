@@ -1,0 +1,39 @@
+# Root level unnecessary files
+eng_csv_to_mp3.py
+hindi_csv_to_mp3.py
+hing_csv_to_mp3.py
+
+# Raw data files
+data/raw/
+data/processed/process_log.txt
+data/processed/english_calls.csv
+data/processed/hindi_calls.csv
+data/processed/hinglish_calls.csv
+data/processed/english_reviews_1500.csv
+data/processed/hindi_reviews_900.csv
+data/processed/hinglish_reviews_150.csv
+data/processed/analysis_results.csv
+
+# Backend uploads
+backend/uploads/
+
+# Audio
+audio/
+*.mp3
+*.wav
+*.m4a
+
+# Environment
+backend/.env
+frontend/.env
+.env
+!**/.env.example
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Node
+frontend/node_modules/
+frontend/build/

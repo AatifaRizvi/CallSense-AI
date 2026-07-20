@@ -1,0 +1,8 @@
+google-genai
+python-dotenv
+pandas
+fastapi
+uvicorn
+python-multipart
+openai-whisper
+supabase
