@@ -47,7 +47,10 @@ function Reviews() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => { fetchReviews(); }, [page]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => {
+      fetchReviews();
+    }, [page]);
 
   const handleSearch = (e) => {
     e.preventDefault();

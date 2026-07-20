@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getHistory } from '../services/api';
-import { Clock, Zap, FileText, Mic } from 'lucide-react';
+import { Clock, FileText, Mic } from 'lucide-react';
 import AnimatedBackground from '../components/AnimatedBackground';
 
 const SENTIMENT_COLORS = {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getCalls } from '../services/api';
-import { Search, PhoneCall, ChevronRight } from 'lucide-react';
+import { Search, ChevronRight } from 'lucide-react';
 import AnimatedBackground from '../components/AnimatedBackground';
 
 const SENTIMENT_COLORS = {
@@ -54,7 +54,10 @@ function Calls() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => { fetchCalls(); }, [page]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    fetchCalls();
+  }, [page]);
 
   const handleSearch = (e) => {
     e.preventDefault();

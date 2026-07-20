@@ -7,8 +7,12 @@ import {
   Tooltip, ResponsiveContainer, Legend
 } from 'recharts';
 import {
-  PhoneCall, Star, TrendingUp, AlertTriangle,
-  CheckCircle, XCircle, Clock, Zap, Lock
+  PhoneCall,
+  Star,
+  TrendingUp,
+  CheckCircle,
+  Zap,
+  Lock
 } from 'lucide-react';
 import AnimatedBackground from '../components/AnimatedBackground';
 
