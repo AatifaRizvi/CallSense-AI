@@ -14,7 +14,7 @@ Turn every sales call and customer review — in **English, Hindi, or Hinglish**
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](#-license)
 
-[🌐 Live Demo](#-live-demo) · [🎥 Demo Video](#-live-demo) · [📖 Docs](#-table-of-contents) · [🐛 Report Bug](YOUR_GITHUB_LINK/issues) · [✨ Request Feature](YOUR_GITHUB_LINK/issues)
+[🌐 Live Demo](#-live-demo) · [🎥 Demo Video](#-live-demo) · [📖 PPT](#-table-of-contents) · [🐛 Report Bug](YOUR_GITHUB_LINK/issues) · [✨ Request Feature](YOUR_GITHUB_LINK/issues)
 
 </div>
 
