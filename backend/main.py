@@ -14,16 +14,9 @@ app = FastAPI(
 )
 
 # CORS — for connecting React frontend
-origins = [
-    "https://callsense-ai-pi.vercel.app",
-    "https://callsense-ai-git-main-aatifa-rizvis-projects.vercel.app",
-    "https://callsense-8ujupwa9t-aatifa-rizvis-projects.vercel.app",
-    "http://localhost:3000",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origin_regex=r"https://callsense.*\.vercel\.app|http://localhost:3000",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
