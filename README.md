@@ -39,7 +39,7 @@ Turn every sales call and customer review — in **English, Hindi, or Hinglish**
 - [System Architecture](#-system-architecture)
 - [Example: Input → Output](#-example-input--output)
 - [Tech Stack](#-tech-stack)
-- [Folder Structure](#-folder-structure)
+- [Project Structure](#-project-structure)
 - [API Documentation](#-api-documentation)
 - [Getting Started](#-getting-started)
 - [Environment Variables](#-environment-variables)
@@ -159,20 +159,20 @@ Every result is persisted per-user in Supabase, with role-based access so admins
 
 ### High-Level Architecture
 
-\```mermaid
+```mermaid
 graph TD
-    A[👤 User] --> B[⚛️ React Frontend]
-    B -->|HTTPS/JWT| C[⚡ FastAPI Backend]
-    C -->|Transcribe| D[🎙️ Groq Whisper]
-    C -->|Analyze| E[🧠 Groq LLM<br/>Llama 3.3 70B]
-    C -->|Read/Write| F[(🗄️ Supabase<br/>Postgres + Auth)]
+    A[User] --> B[React Frontend]
+    B -->|HTTPS/JWT| C[FastAPI Backend]
+    C -->|Transcribe| D[Groq Whisper]
+    C -->|Analyze| E[Groq LLM: Llama 3.3 70B]
+    C -->|Read/Write| F[(Supabase: Postgres + Auth)]
     B -->|Auth Session| F
     F -->|RLS Policies| F
-\```
+```
 
 ### Data Flow — Call Analysis
 
-\```mermaid
+```mermaid
 sequenceDiagram
     participant U as User
     participant F as React Frontend
@@ -193,26 +193,26 @@ sequenceDiagram
     A->>S: Insert into analysis_results
     A-->>F: Analysis + transcript
     F-->>U: Display structured insight
-\```
+```
 
 ### AI Processing Pipeline
 
-\```mermaid
+```mermaid
 graph LR
-    A[Raw Input<br/>Audio / Text / CSV] --> B{Source Type?}
-    B -->|Audio| C[Groq Whisper<br/>Speech-to-Text]
+    A[Raw Input: Audio / Text / CSV] --> B{Source Type?}
+    B -->|Audio| C[Groq Whisper: Speech-to-Text]
     B -->|Text/CSV| D[Direct Text]
-    C --> E[Groq LLM<br/>Structured Analysis]
+    C --> E[Groq LLM: Structured Analysis]
     D --> E
-    E --> F[JSON Output:<br/>sentiment, category, intent,<br/>objection, action_item,<br/>outcome, risk_level]
-    E --> G[English Title<br/>Generation]
+    E --> F[JSON Output: sentiment, category, intent, objection, action_item, outcome, risk_level]
+    E --> G[English Title Generation]
     F --> H[(Supabase)]
     G --> H
-\```
+```
 
 ### Database & Auth Flow
 
-\```mermaid
+```mermaid
 graph TD
     A[Frontend Request] -->|Bearer JWT| B[FastAPI: get_current_user]
     B --> C{Valid Token?}
@@ -223,8 +223,8 @@ graph TD
     F -->|No| H[Query: rows WHERE user_id = caller]
     G --> I[(analysis_results)]
     H --> I
-    I --> J[Row-Level Security<br/>enforced at DB layer]
-\```
+    I --> J[Row-Level Security enforced at DB layer]
+```
 
 </details>
 
@@ -257,7 +257,7 @@ This workflow shows how a user's request moves through the frontend, backend, AI
 
 **CallSense AI Output:**
 
-\```json
+```json
 {
   "title": "Pricing Objection on Annual Plan",
   "sentiment": "Neutral",
@@ -270,7 +270,7 @@ This workflow shows how a user's request moves through the frontend, backend, AI
   "risk_level": "Low",
   "language_detected": "Hinglish"
 }
-\```
+```
 
 The same structured output is produced whether the input is in English, Hindi, or Hinglish — no separate pipeline per language.
 
@@ -278,41 +278,44 @@ The same structured output is produced whether the input is in English, Hindi, o
 
 ## 📁 Project Structure
 
-\```
+```
 callsense-ai/
 ├── README.md
-├── CallSense-AI-Presentation.pptx      # Project presentation
+├── CallSense-AI-Presentation.pptx
 │
 ├── backend/
 │   ├── routes/
-│   │   ├── analyze.py         # Call/review analysis endpoints
-│   │   ├── stats.py           # Dashboard stats (role-scoped)
-│   │   ├── calls.py           # Calls listing + detail
-│   │   ├── reviews.py         # Reviews listing + detail
-│   │   ├── profile.py         # User profile endpoints
-│   │   └── history.py         # Analysis history
-│   ├── auth.py                 # Shared JWT + role verification
-│   ├── llm_analyzer.py         # Groq integration + title generation
-│   ├── audio_processor.py      # Audio handling utilities
-│   ├── batch_processor.py      # Batch analysis processing
-│   ├── prompts.py              # System prompts for call/review analysis
-│   ├── database.py             # Supabase client
-│   ├── main.py                 # FastAPI app entrypoint
+│   │   ├── analyze.py
+│   │   ├── stats.py
+│   │   ├── calls.py
+│   │   ├── reviews.py
+│   │   ├── profile.py
+│   │   └── history.py
+│   ├── auth.py
+│   ├── llm_analyzer.py
+│   ├── batch_processor.py
+│   ├── prompts.py
+│   ├── database.py
+│   ├── main.py
 │   ├── Procfile
 │   └── requirements.txt
 │
 ├── frontend/
 │   ├── public/
 │   │   ├── favicon.ico
-│   │   ├── logo192.png / logo512.png
+│   │   ├── logo192.png
+│   │   ├── logo512.png
 │   │   ├── og-image.png
 │   │   └── manifest.json
 │   └── src/
 │       ├── pages/
 │       │   ├── Landing.jsx
-│       │   ├── Login.jsx / Register.jsx / ForgotPassword.jsx
+│       │   ├── Login.jsx
+│       │   ├── Register.jsx
+│       │   ├── ForgotPassword.jsx
 │       │   ├── Dashboard.jsx
-│       │   ├── Calls.jsx / Reviews.jsx
+│       │   ├── Calls.jsx
+│       │   ├── Reviews.jsx
 │       │   ├── Analyze.jsx
 │       │   └── History.jsx
 │       ├── components/
@@ -321,13 +324,13 @@ callsense-ai/
 │       ├── hooks/
 │       │   └── useProfile.js
 │       ├── services/
-│       │   └── api.js          # Axios instance + auth interceptor
+│       │   └── api.js
 │       ├── App.js
 │       └── supabaseClient.js
 │
 ├── data/
-│   ├── raw/                    # Original raw text data (calls, reviews)
-│   └── processed/              # Cleaned CSVs (master_reviews.csv, etc.)
+│   ├── raw/
+│   └── processed/
 │
 ├── docs/
 │   └── images/
@@ -342,7 +345,7 @@ callsense-ai/
     ├── hinglish_txt_to_csv.py
     ├── merge_eng_rev.py
     └── merge_reviews.py
-\```
+```
 
 ---
 
@@ -371,7 +374,7 @@ callsense-ai/
 | `GET` | `/api/reviews/{record_id}` | Full detail for a single review |
 | `GET` | `/api/history` | Recent analysis history (role-scoped) |
 
-All routes (except public auth pages) require a `Authorization: Bearer <supabase_jwt>` header, validated server-side against Supabase Auth + `user_profiles.role`.
+All routes (except public auth pages) require an `Authorization: Bearer <supabase_jwt>` header, validated server-side against Supabase Auth + `user_profiles.role`.
 
 </details>
 
@@ -386,63 +389,71 @@ All routes (except public auth pages) require a `Authorization: Bearer <supabase
 - A [Groq](https://console.groq.com/) API key (multiple keys supported for rate-limit rotation)
 
 ### 1. Clone the repository
-\```bash
+
+```bash
 git clone https://github.com/AatifaRizvi/CallSense-AI.git
 cd CallSense-AI
-\```
+```
 
 ### 2. Backend Setup
-\```bash
+
+```bash
 cd backend
 python -m venv venv
-venv\Scripts\activate          # Windows
-# source venv/bin/activate     # macOS/Linux
-
+venv\Scripts\activate
 pip install -r requirements.txt
-\```
+```
 
-Create a `.env` file in `backend/` (use `.env.example` as reference) — see [Environment Variables](#-environment-variables) below.
+On macOS/Linux, activate with `source venv/bin/activate` instead.
+
+Create a `.env` file in `backend/` (use `.env.example` as reference) — see Environment Variables below.
 
 Run the backend:
-\```bash
+
+```bash
 uvicorn main:app --reload
-\```
+```
+
 Backend runs at `http://localhost:8000` — docs at `http://localhost:8000/docs`
 
 ### 3. Frontend Setup
-\```bash
+
+```bash
 cd frontend
 npm install
-\```
+```
 
-Create a `.env` file in `frontend/` (use `.env.example` as reference) — see [Environment Variables](#-environment-variables) below.
+Create a `.env` file in `frontend/` (use `.env.example` as reference) — see Environment Variables below.
 
 Run the frontend:
-\```bash
+
+```bash
 npm start
-\```
+```
+
 Frontend runs at `http://localhost:3000`
 
 ---
 
 ## 🔐 Environment Variables
 
-**`backend/.env`**
-\```env
+**backend/.env**
+
+```
 SUPABASE_URL=your_supabase_project_url
 SUPABASE_SERVICE_KEY=your_supabase_service_role_key
-
 GROQ_API_KEY_I=your_groq_key_1
 GROQ_API_KEY_II=your_groq_key_2
 GROQ_API_KEY_III=your_groq_key_3
-\```
+```
 
-**`frontend/.env`**
-\```env
+**frontend/.env**
+
+```
 REACT_APP_API_URL=your_backend_url
 REACT_APP_SUPABASE_URL=your_supabase_project_url
 REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
-\```
+```
 
 ---
 
@@ -450,7 +461,7 @@ REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 | Landing Page | Dashboard | Analyze |
 |---|---|---|
-| ![Dashboard](docs/images/screenshots/dashboard.png) | ![Analyze](docs/images/screenshots/analyze.png) |
+| ![Dashboard](docs/images/screenshots/dashboard.png) | ![Analyze](docs/images/screenshots/analyze.png) | |
 
 ---
 
