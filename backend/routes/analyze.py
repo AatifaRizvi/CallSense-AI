@@ -6,6 +6,7 @@ import tempfile
 from fastapi import APIRouter, UploadFile, File, Form, Header
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
+from groq import Groq
 from database import supabase
 from auth import get_current_user
 from llm_analyzer import analyze_text, generate_english_title
@@ -13,6 +14,8 @@ from llm_analyzer import analyze_text, generate_english_title
 router = APIRouter()
 
 MAX_ROWS = 100  # max rows per upload
+
+groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY_1"))
 
 class TextRequest(BaseModel):
     text: str
@@ -115,17 +118,18 @@ async def analyze_audio_endpoint(file: UploadFile = File(...), authorization: st
         tmp_path = tmp.name
 
     try:
-        import whisper
-        model = whisper.load_model("base")
-        result_whisper = model.transcribe(tmp_path, fp16=False)
-        transcript = result_whisper["text"]
-        detected_lang = result_whisper.get("language", "unknown")
+        with open(tmp_path, "rb") as audio_file:
+            transcription = groq_client.audio.transcriptions.create(
+                file=audio_file,
+                model="whisper-large-v3",
+            )
+        transcript = transcription.text
+
         analysis = analyze_text(transcript, source_type="call")
         save_to_analysis_results(user_id, "call", transcript, analysis)
         return {
             "filename":   file.filename,
             "transcript": transcript,
-            "language":   detected_lang,
             "analysis":   analysis
         }
     finally:
