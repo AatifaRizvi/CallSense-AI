@@ -6,15 +6,14 @@
 
 Turn every sales call and customer review — in **English, Hindi, or Hinglish** — into structured, actionable business insight.
 
-[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://react.dev/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-Python-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![Supabase](https://img.shields.io/badge/Supabase-Postgres-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
-[![Groq](https://img.shields.io/badge/Groq-Llama%203.3%2070B-orange)](https://groq.com/)
-[![Whisper](https://img.shields.io/badge/OpenAI-Whisper-412991?logo=openai&logoColor=white)](https://github.com/openai/whisper)
-[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)](#-license)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white&labelColor=1a1a2e)
+![FastAPI](https://img.shields.io/badge/FastAPI-Python-009688?logo=fastapi&logoColor=white&labelColor=1a1a2e)
+![Supabase](https://img.shields.io/badge/Supabase-Postgres-3ECF8E?logo=supabase&logoColor=white&labelColor=1a1a2e)
+![Groq](https://img.shields.io/badge/Groq-Llama%203.3%2070B-F55036?logo=groq&logoColor=white&labelColor=1a1a2e)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwindcss&logoColor=white&labelColor=1a1a2e)
+![License](https://img.shields.io/badge/License-MIT-lightgrey?labelColor=1a1a2e)
 
-[🌐 Live Demo](#-live-demo) · [🎥 Demo Video](#-live-demo) · [📖 PPT](#-table-of-contents) · [🐛 Report Bug](YOUR_GITHUB_LINK/issues) · [✨ Request Feature](YOUR_GITHUB_LINK/issues)
+[🌐 Live Demo](https://callsense-ai-rho.vercel.app/) · [🎥 Demo Video](#-live-demo) · [📖 PPT](https://github.com/AatifaRizvi/CallSense-AI/blob/main/CallSense-AI-Presentation.pptx) · [🐛 Report Bug](https://github.com/AatifaRizvi/CallSense-AI/issues) · [✨ Request Feature](https://github.com/AatifaRizvi/CallSense-AI/issues)
 
 </div>
 
@@ -24,10 +23,10 @@ Turn every sales call and customer review — in **English, Hindi, or Hinglish**
 
 | | |
 |---|---|
-| 🖥️ **Frontend** | [Live Application](YOUR_VERCEL_LINK) |
-| 🚀 **Backend API** | [API Endpoint](YOUR_RENDER_LINK) |
+| 🖥️ **Frontend** | [Live Application](https://callsense-ai-rho.vercel.app/) |
+| 🚀 **Backend API** | [API Endpoint](https://callsense-ai-backend.onrender.com) |
 | 🎥 **Demo Video** | [Watch Demo](YOUR_YOUTUBE_LINK) |
-| 💻 **Source Code** | [GitHub Repository](YOUR_GITHUB_LINK) |
+| 💻 **Source Code** | [GitHub Repository](https://github.com/AatifaRizvi/CallSense-AI) |
 
 ---
 
@@ -51,7 +50,7 @@ Turn every sales call and customer review — in **English, Hindi, or Hinglish**
 - [Roadmap](#-roadmap)
 - [Challenges Faced](#-challenges-faced)
 - [Lessons Learned](#-lessons-learned)
-- [Resume / Skills Demonstrated](#-resume--skills-demonstrated)
+- [Skills Demonstrated](#-resume--skills-demonstrated)
 - [Business Use Cases](#-business-use-cases)
 - [FAQ](#-faq)
 - [Author](#-author)
@@ -76,7 +75,7 @@ CallSense AI was built to close that gap: a platform that reads a conversation *
 
 CallSense AI accepts a sales call recording, a pasted review, or a bulk CSV of reviews, and runs it through a two-stage AI pipeline:
 
-1. **Whisper** transcribes audio to text (for calls).
+1. **Groq Whisper (Large v3)** transcribes audio to text (for calls).
 2. **Groq (Llama 3.3 70B Versatile)** analyzes the text — regardless of language — and extracts a structured JSON object: title, sentiment, category, intent, summary, objection, action item, outcome, risk level, and detected language.
 
 Every result is persisted per-user in Supabase, with role-based access so admins see team-wide data and individual users see only their own.
@@ -91,7 +90,7 @@ Every result is persisted per-user in Supabase, with role-based access so admins
 
 ### 🎙️ Call Intelligence
 - Audio upload (MP3/WAV/M4A)
-- Whisper transcription
+- Groq Whisper transcription
 - Automatic sentiment & objection extraction
 - Outcome classification
 
@@ -117,7 +116,7 @@ Every result is persisted per-user in Supabase, with role-based access so admins
 
 | Feature | Description |
 |---|---|
-| 🎙️ AI Sales Call Analysis | Upload a recording → Whisper transcribes → Groq analyzes |
+| 🎙️ AI Sales Call Analysis | Upload a recording → Groq Whisper transcribes → Groq LLM analyzes |
 | ⭐ Customer Review Analysis | Paste text or bulk-upload a CSV |
 | 🌍 Multilingual Analysis | English, Hindi, Hinglish — handled natively |
 | 🧾 Sentiment Detection | Positive / Negative / Neutral classification |
@@ -137,8 +136,6 @@ Every result is persisted per-user in Supabase, with role-based access so admins
 
 ---
 
----
-
 ## 🖥️ Tech Stack
 
 | Layer | Technology |
@@ -147,7 +144,7 @@ Every result is persisted per-user in Supabase, with role-based access so admins
 | **Backend** | FastAPI (Python) |
 | **Database & Auth** | Supabase (Postgres, Auth, Row-Level Security) |
 | **AI / LLM** | Groq API — Llama 3.3 70B Versatile |
-| **Speech-to-Text** | OpenAI Whisper |
+| **Speech-to-Text** | Groq API — Whisper Large v3 |
 
 ---
 
@@ -155,7 +152,6 @@ Every result is persisted per-user in Supabase, with role-based access so admins
 
 <div align="center">
 <img src="docs/images/architecture.png" alt="CallSense AI System Architecture" width="900"/>
-
 </div>
 
 <details>
@@ -163,25 +159,25 @@ Every result is persisted per-user in Supabase, with role-based access so admins
 
 ### High-Level Architecture
 
-```mermaid
+\```mermaid
 graph TD
     A[👤 User] --> B[⚛️ React Frontend]
     B -->|HTTPS/JWT| C[⚡ FastAPI Backend]
-    C -->|Transcribe| D[🎙️ Whisper]
+    C -->|Transcribe| D[🎙️ Groq Whisper]
     C -->|Analyze| E[🧠 Groq LLM<br/>Llama 3.3 70B]
     C -->|Read/Write| F[(🗄️ Supabase<br/>Postgres + Auth)]
     B -->|Auth Session| F
     F -->|RLS Policies| F
-```
+\```
 
 ### Data Flow — Call Analysis
 
-```mermaid
+\```mermaid
 sequenceDiagram
     participant U as User
     participant F as React Frontend
     participant A as FastAPI Backend
-    participant W as Whisper
+    participant W as Groq Whisper
     participant G as Groq LLM
     participant S as Supabase
 
@@ -197,14 +193,14 @@ sequenceDiagram
     A->>S: Insert into analysis_results
     A-->>F: Analysis + transcript
     F-->>U: Display structured insight
-```
+\```
 
 ### AI Processing Pipeline
 
-```mermaid
+\```mermaid
 graph LR
     A[Raw Input<br/>Audio / Text / CSV] --> B{Source Type?}
-    B -->|Audio| C[Whisper<br/>Speech-to-Text]
+    B -->|Audio| C[Groq Whisper<br/>Speech-to-Text]
     B -->|Text/CSV| D[Direct Text]
     C --> E[Groq LLM<br/>Structured Analysis]
     D --> E
@@ -212,11 +208,11 @@ graph LR
     E --> G[English Title<br/>Generation]
     F --> H[(Supabase)]
     G --> H
-```
+\```
 
 ### Database & Auth Flow
 
-```mermaid
+\```mermaid
 graph TD
     A[Frontend Request] -->|Bearer JWT| B[FastAPI: get_current_user]
     B --> C{Valid Token?}
@@ -228,38 +224,26 @@ graph TD
     G --> I[(analysis_results)]
     H --> I
     I --> J[Row-Level Security<br/>enforced at DB layer]
-```
+\```
 
 </details>
-
----
 
 ---
 
 # 📊 Data Pipeline
 
 <div align="center">
-
-<img src="docs/images/data_pipeline.png"
-alt="CallSense AI Data Pipeline"
-width="900"/>
-
+<img src="docs/images/data_pipeline.png" alt="CallSense AI Data Pipeline" width="900"/>
 </div>
 
-This pipeline illustrates how multilingual audio calls and customer reviews are transformed into structured business intelligence using Whisper, Groq, and Supabase.
-
----
+This pipeline illustrates how multilingual audio calls and customer reviews are transformed into structured business intelligence using Groq Whisper, Groq LLM, and Supabase.
 
 ---
 
 # 🔄 Application Workflow
 
 <div align="center">
-
-<img src="docs/images/workflow.png"
-alt="Application Workflow"
-width="850"/>
-
+<img src="docs/images/workflow.png" alt="Application Workflow" width="850"/>
 </div>
 
 This workflow shows how a user's request moves through the frontend, backend, AI services, database, and finally appears on the dashboard.
@@ -273,7 +257,7 @@ This workflow shows how a user's request moves through the frontend, backend, AI
 
 **CallSense AI Output:**
 
-```json
+\```json
 {
   "title": "Pricing Objection on Annual Plan",
   "sentiment": "Neutral",
@@ -286,50 +270,79 @@ This workflow shows how a user's request moves through the frontend, backend, AI
   "risk_level": "Low",
   "language_detected": "Hinglish"
 }
-```
+\```
 
 The same structured output is produced whether the input is in English, Hindi, or Hinglish — no separate pipeline per language.
 
+---
 
-## 📁 Folder Structure
+## 📁 Project Structure
 
-```
+\```
 callsense-ai/
+├── README.md
+├── CallSense-AI-Presentation.pptx      # Project presentation
+│
 ├── backend/
 │   ├── routes/
-│   │   ├── analyze.py        # Call/review analysis endpoints
-│   │   ├── stats.py          # Dashboard stats (role-scoped)
-│   │   ├── calls.py          # Calls listing + detail
-│   │   ├── reviews.py        # Reviews listing + detail
-│   │   └── history.py        # Analysis history
-│   ├── auth.py                # Shared JWT + role verification
-│   ├── llm_analyzer.py        # Groq integration + title generation
-│   ├── prompts.py             # System prompts for call/review analysis
-│   ├── database.py            # Supabase client
-│   ├── main.py                # FastAPI app entrypoint
+│   │   ├── analyze.py         # Call/review analysis endpoints
+│   │   ├── stats.py           # Dashboard stats (role-scoped)
+│   │   ├── calls.py           # Calls listing + detail
+│   │   ├── reviews.py         # Reviews listing + detail
+│   │   ├── profile.py         # User profile endpoints
+│   │   └── history.py         # Analysis history
+│   ├── auth.py                 # Shared JWT + role verification
+│   ├── llm_analyzer.py         # Groq integration + title generation
+│   ├── audio_processor.py      # Audio handling utilities
+│   ├── batch_processor.py      # Batch analysis processing
+│   ├── prompts.py              # System prompts for call/review analysis
+│   ├── database.py             # Supabase client
+│   ├── main.py                 # FastAPI app entrypoint
+│   ├── Procfile
 │   └── requirements.txt
 │
-└── frontend/
-    ├── public/
-    │   └── assets/
-    │       └── architecture.png
-    └── src/
-        ├── pages/
-        │   ├── Landing.jsx
-        │   ├── Login.jsx / Register.jsx / ForgotPassword.jsx
-        │   ├── Dashboard.jsx
-        │   ├── Calls.jsx / Reviews.jsx
-        │   ├── Analyze.jsx
-        │   └── History.jsx
-        ├── components/
-        │   ├── Sidebar.jsx
-        │   └── AnimatedBackground.jsx
-        ├── hooks/
-        │   └── useProfile.js
-        ├── services/
-        │   └── api.js          # Axios instance + auth interceptor
-        └── supabaseClient.js
-```
+├── frontend/
+│   ├── public/
+│   │   ├── favicon.ico
+│   │   ├── logo192.png / logo512.png
+│   │   ├── og-image.png
+│   │   └── manifest.json
+│   └── src/
+│       ├── pages/
+│       │   ├── Landing.jsx
+│       │   ├── Login.jsx / Register.jsx / ForgotPassword.jsx
+│       │   ├── Dashboard.jsx
+│       │   ├── Calls.jsx / Reviews.jsx
+│       │   ├── Analyze.jsx
+│       │   └── History.jsx
+│       ├── components/
+│       │   ├── Sidebar.jsx
+│       │   └── AnimatedBackground.jsx
+│       ├── hooks/
+│       │   └── useProfile.js
+│       ├── services/
+│       │   └── api.js          # Axios instance + auth interceptor
+│       ├── App.js
+│       └── supabaseClient.js
+│
+├── data/
+│   ├── raw/                    # Original raw text data (calls, reviews)
+│   └── processed/              # Cleaned CSVs (master_reviews.csv, etc.)
+│
+├── docs/
+│   └── images/
+│       ├── architecture.png
+│       ├── data_pipeline.png
+│       ├── workflow.png
+│       └── screenshots/
+│
+└── scripts/
+    ├── english_txt_to_csv.py
+    ├── hindi_txt_to_csv.py
+    ├── hinglish_txt_to_csv.py
+    ├── merge_eng_rev.py
+    └── merge_reviews.py
+\```
 
 ---
 
@@ -373,46 +386,63 @@ All routes (except public auth pages) require a `Authorization: Bearer <supabase
 - A [Groq](https://console.groq.com/) API key (multiple keys supported for rate-limit rotation)
 
 ### 1. Clone the repository
-```bash
-git clone YOUR_GITHUB_LINK
-cd callsense-ai
-```
+\```bash
+git clone https://github.com/AatifaRizvi/CallSense-AI.git
+cd CallSense-AI
+\```
 
-### 2. Backend setup
-```bash
+### 2. Backend Setup
+\```bash
 cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
+python -m venv venv
+venv\Scripts\activate          # Windows
+# source venv/bin/activate     # macOS/Linux
 
-### 3. Frontend setup
-```bash
+pip install -r requirements.txt
+\```
+
+Create a `.env` file in `backend/` (use `.env.example` as reference) — see [Environment Variables](#-environment-variables) below.
+
+Run the backend:
+\```bash
+uvicorn main:app --reload
+\```
+Backend runs at `http://localhost:8000` — docs at `http://localhost:8000/docs`
+
+### 3. Frontend Setup
+\```bash
 cd frontend
 npm install
-npm start
-```
+\```
 
-Frontend runs at `http://localhost:3000`, backend at `http://localhost:8000`.
+Create a `.env` file in `frontend/` (use `.env.example` as reference) — see [Environment Variables](#-environment-variables) below.
+
+Run the frontend:
+\```bash
+npm start
+\```
+Frontend runs at `http://localhost:3000`
 
 ---
 
 ## 🔐 Environment Variables
 
 **`backend/.env`**
-```env
+\```env
 SUPABASE_URL=your_supabase_project_url
-SUPABASE_KEY=your_supabase_service_role_key
+SUPABASE_SERVICE_KEY=your_supabase_service_role_key
 
-GROQ_API_KEY=your_groq_key_1
+GROQ_API_KEY_I=your_groq_key_1
 GROQ_API_KEY_II=your_groq_key_2
 GROQ_API_KEY_III=your_groq_key_3
-```
+\```
 
 **`frontend/.env`**
-```env
+\```env
+REACT_APP_API_URL=your_backend_url
 REACT_APP_SUPABASE_URL=your_supabase_project_url
 REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
+\```
 
 ---
 
@@ -428,8 +458,8 @@ REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 | Layer | Platform |
 |---|---|
-| Frontend | [Vercel](YOUR_VERCEL_LINK) |
-| Backend | [Render](YOUR_RENDER_LINK) |
+| Frontend | [Vercel](https://callsense-ai-rho.vercel.app/) |
+| Backend | [Render](https://callsense-ai-backend.onrender.com) |
 | Database | Supabase (managed Postgres) |
 
 ---
@@ -467,12 +497,13 @@ REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
 - **Row-Level Security vs. backend role scoping conflict** — frontend queries via the anon key were restricted by RLS even for admins, requiring a move to backend-only queries (service role) for admin-visible data.
 - **Multilingual title generation** — the LLM initially produced summary-length or malformed Hindi titles instead of short English headlines; solved with a tightly-constrained prompt (explicit good/bad examples, word-count ceiling, and a code-level truncation safety net).
 - **CSV encoding** — Hindi/Devanagari text appeared corrupted when opened in Excel due to missing UTF-8 BOM; fixed by writing exports with `utf-8-sig` encoding.
+- **Render free-tier memory limits** — local Whisper model loading caused out-of-memory crashes on every audio request; resolved by switching audio transcription to the Groq Whisper API instead of a locally loaded model.
 
 ## 📚 Lessons Learned
 
 - Security has to be checked at **every layer** it's implemented — a correct RLS policy and a correct backend check can still conflict with each other if one assumes the other isn't there.
 - LLM outputs need **explicit negative examples** ("don't do this"), not just positive instructions, to reliably avoid a failure mode like summary-style titles.
-- Default limits in managed platforms (like Supabase's row cap) are an easy thing to miss until real data volume exposes them.
+- Default limits in managed platforms (like Supabase's row cap, or Render's free-tier memory) are easy to miss until real usage exposes them.
 
 ## 🎓 Skills Demonstrated
 

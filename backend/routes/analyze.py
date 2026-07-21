@@ -15,7 +15,7 @@ router = APIRouter()
 
 MAX_ROWS = 100  # max rows per upload
 
-groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY_1"))
+groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY_I"))
 
 class TextRequest(BaseModel):
     text: str
