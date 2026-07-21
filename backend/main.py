@@ -17,9 +17,10 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://callsense-ai-aatifa-rizvis-projects.vercel.app",
-        "http://localhost:5173"
+        "https://callsense-ai-pi.vercel.app",
+        "http://localhost:3000",
     ],
+    
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
