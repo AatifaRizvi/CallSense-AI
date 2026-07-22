@@ -459,9 +459,9 @@ REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ## 📸 Screenshots
 
-| Landing Page | Dashboard | Analyze |
-|---|---|---|
-| ![Dashboard](docs/images/screenshots/dashboard.png) | ![Analyze](docs/images/screenshots/analyze.png) | |
+| Dashboard | Analyze |
+|---|---|
+| ![Dashboard](docs/images/screenshots/dashboard.png) | ![Analyze](docs/images/screenshots/analyze.png) |
 
 ---
 
@@ -556,10 +556,6 @@ The backend automatically rotates to the next configured Groq API key and retrie
 
 **Aatifa Rizvi**
 B.Tech Artificial Intelligence, Zakir Husain College of Engineering & Technology, Aligarh Muslim University (AMU), Aligarh, U.P., India
-
-[![GitHub](https://img.shields.io/badge/GitHub-AatifaRizvi-181717?logo=github&logoColor=white)](https://github.com/AatifaRizvi)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-aatifa--rizvi-0A66C2?logo=linkedin&logoColor=white)](https://linkedin.com/in/aatifa-rizvi)
-[![Email](https://img.shields.io/badge/Email-rizviaatifa235%40gmail.com-D14836?logo=gmail&logoColor=white)](mailto:rizviaatifa235@gmail.com)
 
 ---
 
